@@ -8,6 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 public class Specifications {
+    public final static String URL = "https://reqres.in/";
 
     public static RequestSpecification requestSpec(String url) {
         return new RequestSpecBuilder()
