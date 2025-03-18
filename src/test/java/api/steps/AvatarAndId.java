@@ -4,13 +4,13 @@ import api.model.UserData;
 import org.junit.Assert;
 import java.util.List;
 
-public class AvatarAndId {
-    public void checkAvatarsContainIds(List<UserData> users) {
-        for (UserData user : users) {
-            Assert.assertTrue(
-                    "Avatar does not contain user ID: " + user.getId(),
-                    user.getAvatar().contains(user.getId().toString())
-            );
+public class AvatarAndId {                                                                                              // Этот класс используется для валидации данных пользователей, гарантируя, что информация об их идентификаторах корректно отражена в аватарах.
+    public void checkAvatarsContainIds(List<UserData> users) {                                                          // Этот метод принимает в качестве параметра список объектов типа UserData
+        for (UserData user : users) {                                                                                   // Здесь начинается цикл, который проходит по каждому объекту UserData в списке users
+            Assert.assertTrue(                                                                                          // Проверка условия. Внутри цикла выполняется проверка с использованием метода assertTrue, для утвеждения, что условие истинно. Если условие ложно, то будет выброшено искючение с сообщеним об ошибке.
+                    "Avatar does not contain user ID: " + user.getId(),                                                 // Сообщение, которое будет выведено в случае ошибки, формируется как строка: "Avatar does not contain user ID: " + user.getId(). Это позволяет понять, для какого пользователя произошла ошибка.
+                    user.getAvatar().contains(user.getId().toString())                                                  // это условие, которое проверяет, содержится ли строковое представление идентификатора пользователя (user.getId().toString()) в строке, представляющей аватар пользователя (user.getAvatar()).
+            );                                                                                                          // таким образом, метод checkAvatarsContainIds проверяет, что каждый аватар пользователя содержит его идентификатор. Если для какого-либо пользователя это условие не выполняется, будет выброшено исключение, и тест завершится с ошибкой, указывая на конкретного пользователя, для которого проверка не прошла.
         }
     }
 }
